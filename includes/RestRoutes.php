@@ -24,6 +24,7 @@ class RestRoutes {
                 'token'        => ['required' => true, 'type' => 'string'],
                 'store_id'     => ['required' => true, 'type' => 'string'],
                 'email'        => ['required' => true, 'type' => 'string'],
+                'outbound_secret' => ['required' => false, 'type' => 'string'],
             ],
         ]);
     }
@@ -36,7 +37,8 @@ class RestRoutes {
         $code     = sanitize_text_field($req->get_param('pairing_code'));
         $token    = sanitize_text_field($req->get_param('token'));
         $store_id = sanitize_text_field($req->get_param('store_id'));
-        $email    = sanitize_email($req->get_param('email'));
+        $email           = sanitize_email($req->get_param('email'));
+        $outbound_secret = sanitize_text_field($req->get_param('outbound_secret'));
 
         // Shared secret: the pairing code we ourselves generated must match.
         $expected = Pairing::get_pending_code();
@@ -44,7 +46,7 @@ class RestRoutes {
             return new \WP_REST_Response(['error' => 'invalid_or_expired_code'], 401);
         }
 
-        Pairing::receive_token($token, $store_id, $email);
+        Pairing::receive_token($token, $store_id, $email, $outbound_secret);
 
         return new \WP_REST_Response(['ok' => true], 200);
     }
