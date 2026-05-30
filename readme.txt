@@ -4,7 +4,7 @@ Tags: woocommerce, returns, refunds, exchanges, rma
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,9 @@ Features:
 5. Approve the pairing — your store now syncs automatically
 
 == Changelog ==
+
+= 0.3.0 =
+* Sync flow: WooCommerce new-order, order-status-change, refund, product-save and new-customer events now POST to the Refundia dashboard automatically (paired stores only). Fire-and-forget; failures are logged but never block WooCommerce.
 
 = 0.2.0 =
 * Pairing flow: admin page generates a short code, dashboard accepts the code to issue a long-lived token. WooCommerce sync hooks still pending in 0.3.0.
