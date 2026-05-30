@@ -3,7 +3,7 @@
  * Plugin Name: Refundia — Returns Management
  * Plugin URI: https://refundia-dashboard-plus-api.vercel.app
  * Description: Automated returns, refunds, and exchanges management for WooCommerce. Integrates with the Refundia dashboard for Spanish merchants.
- * Version: 0.2.0
+ * Version: 0.3.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Refundia
@@ -17,7 +17,7 @@
 
 defined('ABSPATH') || exit;
 
-define('REFUNDIA_VERSION', '0.2.0');
+define('REFUNDIA_VERSION', '0.3.0');
 define('REFUNDIA_PLUGIN_FILE', __FILE__);
 define('REFUNDIA_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('REFUNDIA_API_BASE', 'https://refundia-dashboard-plus-api.vercel.app/api');
