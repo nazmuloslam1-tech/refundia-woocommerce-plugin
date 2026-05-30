@@ -16,7 +16,8 @@ class Pairing {
     const OPT_TOKEN      = 'refundia_token';
     const OPT_STORE_ID   = 'refundia_store_id';
     const OPT_EMAIL      = 'refundia_account_email';
-    const OPT_PAIRED_AT  = 'refundia_paired_at';
+    const OPT_PAIRED_AT      = 'refundia_paired_at';
+    const OPT_OUTBOUND_SECRET = 'refundia_outbound_secret';
     const CODE_TTL       = 900; // 15 minutes
 
     /**
@@ -64,11 +65,14 @@ class Pairing {
     /**
      * Called by the REST callback when the dashboard finishes pairing.
      */
-    public static function receive_token($token, $store_id, $email) {
+    public static function receive_token($token, $store_id, $email, $outbound_secret = '') {
         update_option(self::OPT_TOKEN, $token, false);
         update_option(self::OPT_STORE_ID, $store_id, false);
         update_option(self::OPT_EMAIL, $email, false);
         update_option(self::OPT_PAIRED_AT, gmdate('c'), false);
+        if (! empty($outbound_secret)) {
+            update_option(self::OPT_OUTBOUND_SECRET, $outbound_secret, false);
+        }
         delete_option(self::OPT_CODE);
         delete_option(self::OPT_EXPIRES);
         return true;
@@ -93,11 +97,16 @@ class Pairing {
         return $code;
     }
 
+    public static function get_outbound_secret() {
+        return get_option(self::OPT_OUTBOUND_SECRET);
+    }
+
     public static function unpair() {
         delete_option(self::OPT_TOKEN);
         delete_option(self::OPT_STORE_ID);
         delete_option(self::OPT_EMAIL);
         delete_option(self::OPT_PAIRED_AT);
+        delete_option(self::OPT_OUTBOUND_SECRET);
         delete_option(self::OPT_CODE);
         delete_option(self::OPT_EXPIRES);
         return true;
