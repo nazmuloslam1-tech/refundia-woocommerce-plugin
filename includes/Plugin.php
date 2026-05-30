@@ -7,6 +7,7 @@ class Plugin {
 
     public function __construct() {
         new RestRoutes();
+        new RefundHandler();
         Sync::init();
         add_action('admin_menu',  [$this, 'add_admin_menu']);
         add_action('admin_post_refundia_pair',   [$this, 'handle_pair_request']);
