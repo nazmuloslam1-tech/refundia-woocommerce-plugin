@@ -1,0 +1,38 @@
+=== Refundia ===
+Contributors: refundia
+Tags: woocommerce, returns, refunds, exchanges, rma
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+Stable tag: 0.1.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Automated returns, refunds, and exchange management for WooCommerce stores. Built for the Spanish market.
+
+== Description ==
+
+Refundia gives WooCommerce merchants a complete returns management dashboard. Customers request returns through a branded public portal; merchants approve, reject, or convert to exchange in one click; refunds flow back to Stripe; shipping labels generate automatically through Correos.
+
+Features:
+* Branded customer return portal (no merchant intervention needed for routine returns)
+* One-click approve / reject / exchange from the Refundia dashboard
+* Automatic Stripe refunds when a return is approved
+* Spanish carrier integration (Correos label generation)
+* WhatsApp & email notifications to customers at every stage
+* Factura Rectificativa auto-generation for Spanish AEAT compliance
+* "Keep the Item" optimizer for low-value returns
+* Real-time sync of orders, products, customers between WooCommerce and Refundia
+
+== Installation ==
+
+1. Install and activate Refundia from the WordPress plugin directory
+2. A new "Refundia" menu appears in your WordPress admin sidebar
+3. Open it and click "Pair with Refundia"
+4. Sign in to your Refundia account (or create one — free)
+5. Approve the pairing — your store now syncs automatically
+
+== Changelog ==
+
+= 0.1.0 =
+* Initial skeleton release. Admin menu placeholder. Pairing flow coming in 0.2.0.
