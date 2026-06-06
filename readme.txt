@@ -4,7 +4,7 @@ Tags: woocommerce, returns, refunds, exchanges, rma
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 0.4.0
+Stable tag: 0.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,10 @@ Features:
 5. Approve the pairing — your store now syncs automatically
 
 == Changelog ==
+
+= 0.5.0 =
+* Backfill: new `/wp-json/refundia/v1/backfill` route (HMAC-signed) lets the Refundia dashboard re-push existing orders, products and customers. Also auto-runs in the background right after pairing.
+* Health check: new public `/wp-json/refundia/v1/health` route returns plugin version and pairing state — used by the dashboard "Test connection" button.
 
 = 0.4.0 =
 * Refund execution: dashboard can now trigger refunds. Plugin receives an HMAC-signed request and runs wc_create_refund() (refunds the captured payment automatically). Idempotent via dashboard-supplied keys.
