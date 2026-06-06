@@ -75,6 +75,10 @@ class Pairing {
         }
         delete_option(self::OPT_CODE);
         delete_option(self::OPT_EXPIRES);
+        // Kick off background backfill of existing orders/products/customers.
+        if (class_exists(__NAMESPACE__ . '\\Backfill')) {
+            Backfill::schedule_auto_backfill();
+        }
         return true;
     }
 
